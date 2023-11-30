@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "yt-video-summarizer",
+    "version": "1.0",
+
+    "description": "Summarizes Youtube transcripts using an LLM",
+    "homepage_url": "https://github.com/zvoverman/yt-video-summarizer",
+    "icons": {
+        "48": "icons/monstera-leaf.svg"
+    },
+
+    "sidebar_action": {
+        "default_title": "YT Summarizer",
+        "default_panel": "sidebar/panel.html",
+        "default_icon": "icons/monstera-leaf.svg"
+    },   
+
+    "permissions": [
+        "*://youtube.com/*",
+        "storage",
+        "tabs"
+    ]
+}
