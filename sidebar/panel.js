@@ -2,9 +2,6 @@
 let myWindowId;
 const contentBox = document.querySelector("#content");
 
-// youtube-transcript
-//const transcript = require('youtube-transcript');
-
 /*
 Make the content box editable as soon as the user mouses over the sidebar.
 */
@@ -82,13 +79,16 @@ btn.addEventListener("click", async function () {
         if (!response.ok) {
             throw new Error(`Error: ${response.status} - ${response.statusText}`);
         }
+        
+        const data = await response.json(); // Assuming the response is in JSON format
 
-        const data = await response.text();
+        // Summarize the transcript data
+        const summarizationResult = concatenateTextFields(data);
 
         const p = document.getElementById("output");
-        p.innerHTML = data;
+        p.innerHTML = summarizationResult;
 
-        // You can use the 'data' variable as needed
+        // You can use the 'summarizationResult' variable as needed
 
     } catch (error) {
         document.getElementById("output").innerHTML = "Error occurred during summarization";
@@ -98,5 +98,10 @@ btn.addEventListener("click", async function () {
         btn.innerHTML = "Summarise";
     }
 });
+
+function concatenateTextFields(objectsList) {
+    return objectsList.map(obj => obj.text).join(' ');
+}
+
 
 

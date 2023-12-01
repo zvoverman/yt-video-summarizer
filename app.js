@@ -8,23 +8,29 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 
 // youtube-transcript
-//const transcript = require('youtube-transcript');
+const transcript = require('youtube-transcript');
 
 // Define a route for the root path ("/")
 app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
 
-//response.send(status) is now a function that takes the JSON object as the argument.
-app.get("/summary", (req, res) => {
-    // Retrieve the 'url' parameter from the query string
-    const url = req.query.url || '';
+// Define a route for the "/summary" path
+app.get("/summary", async (req, res) => {
+    try {
+        // Retrieve the 'url' parameter from the query string
+        const url = req.query.url || '';
 
-    // Perform some summarization logic here (replace this with your actual logic)
-    const summaryResult = `Summary for ${url}`;
+        // Fetch the transcript asynchronously using youtube-transcript
+        const summaryResult = await transcript.YoutubeTranscript.fetchTranscript(url);
 
-    // Send the summary as the response
-    res.send(summaryResult);
+        // Send the summary as the response
+        res.json(summaryResult);
+
+    } catch (error) {
+        console.error("Error during summarization:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
 });
 
 // Port Environment Variable
