@@ -73,14 +73,14 @@ btn.addEventListener("click", async function () {
     const url = tabs[0].url;
 
     try {
-        // Make a GET request to your Express.js server using fetch
+        // Make a GET request to Express.js server using fetch
         const response = await fetch(`http://127.0.0.1:8080/summary?url=${encodeURIComponent(url)}`);
 
         if (!response.ok) {
             throw new Error(`Error: ${response.status} - ${response.statusText}`);
         }
 
-        const summaryResult = await response.text(); // Assuming the response is in JSON format
+        const summaryResult = await response.text(); // Assuming the response is in text format
 
         const p = document.getElementById("output");
         p.innerHTML = summaryResult;
