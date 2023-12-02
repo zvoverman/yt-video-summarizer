@@ -1,4 +1,4 @@
-
+// Document Box
 let myWindowId;
 const contentBox = document.querySelector("#content");
 
@@ -79,16 +79,11 @@ btn.addEventListener("click", async function () {
         if (!response.ok) {
             throw new Error(`Error: ${response.status} - ${response.statusText}`);
         }
-        
-        const data = await response.json(); // Assuming the response is in JSON format
 
-        // Summarize the transcript data
-        const summarizationResult = concatenateTextFields(data);
+        const summaryResult = await response.text(); // Assuming the response is in JSON format
 
         const p = document.getElementById("output");
-        p.innerHTML = summarizationResult;
-
-        // You can use the 'summarizationResult' variable as needed
+        p.innerHTML = summaryResult;
 
     } catch (error) {
         document.getElementById("output").innerHTML = "Error occurred during summarization";
@@ -98,10 +93,3 @@ btn.addEventListener("click", async function () {
         btn.innerHTML = "Summarise";
     }
 });
-
-function concatenateTextFields(objectsList) {
-    return objectsList.map(obj => obj.text).join(' ');
-}
-
-
-

@@ -1,8 +1,16 @@
+const huggingface = require('@huggingface/inference');
+
 const express = require('express');
 const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+require('dotenv').config();
+
+const hf = new huggingface.HfInference(process.env.HF_ACCESS_TOKEN);
+
+console.log(hf);
 
 // Enable CORS for all routes
 app.use(cors());
@@ -22,10 +30,24 @@ app.get("/summary", async (req, res) => {
         const url = req.query.url || '';
 
         // Fetch the transcript asynchronously using youtube-transcript
-        const summaryResult = await transcript.YoutubeTranscript.fetchTranscript(url);
+        const transcriptObject = await transcript.YoutubeTranscript.fetchTranscript(url);
+
+        // Summarize the transcript data
+        const transcriptString = concatenateTextFields(transcriptObject);
+
+        // Hugging Face
+        const summaryResponse = await hf.summarization({
+            model: 'facebook/bart-large-cnn',
+            inputs: transcriptString,
+            parameters: {
+                max_length: 300
+            }
+        })
+
+        console.log(summaryResponse.summary_text);
 
         // Send the summary as the response
-        res.json(summaryResult);
+        res.json(summaryResponse.summary_text);
 
     } catch (error) {
         console.error("Error during summarization:", error);
@@ -37,5 +59,9 @@ app.get("/summary", async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running at http://127.0.0.1:${PORT}/`);
 });
+
+function concatenateTextFields(objectsList) {
+    return objectsList.map(obj => obj.text).join(' ');
+}
 
 
