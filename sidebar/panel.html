@@ -8,20 +8,21 @@
 </head>
 
 <body>
-    <h3>Youtube Transcript Summariser</h3>
+
+    <h2>Youtube Transcript Summariser</h2>
     <button id="summarise" type="button">Summarise</button>
-    <br />
-    <div id="content"></div>
-    <p>Click inside the box to start taking notes on this page.</p>
 
     <br />
-    <p id="output"></p>
 
+    <div id="summary">
+        <p id="output">
+            Find a <a href="https://www.youtube.com" style="color: #588157">Youtube video</a> to start summarizing
+        </p>
+    </div>
+
+    
     <script src="panel.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module">
-        import { HfInference } from 'https://cdn.jsdelivr.net/npm/@huggingface/inference@2.6.4/+esm';
-    </script>
 
 </body>
 

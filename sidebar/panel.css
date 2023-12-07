@@ -1,58 +1,56 @@
-html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
+html,
+
+/* Header */
+h2 {
+    text-align: center;
+}
+
+p {
+    margin: 1em 2em;
+}
+
+body {
     height: 90%;
     font: caption;
-    background-color: #F4F7F8;
-  }
-  
-  p {
-    margin: 1em 2em;
-  }
-  
-  #content {
-    height: 90%;
-    margin: 2em 2em 0 2em;
-    border: .5em solid #DDE4E9;
-    transition: background-color .2s ease-out;
-  }
-  
-  #content[contenteditable=true] {
-    background-color: white;
-    transition: background-color .2s ease-in;
-  }
-  
-  [contenteditable]:focus {
-    outline: 0px solid transparent;
-  }
+    background-color: #1a1a1a;
+    color: #fff;
+}
 
-  button {
-    background-color: #04AA6D; /* Green */
+/* Summary output */
+#summary {
+    user-select: auto;
+    padding: 10px;
+    border: 5px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+/* Button not clicked*/
+button {
+    background-color: #588157;
     border: none;
-    width: max-content;
-    height: max-content;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
     font-size: 16px;
-  } 
-  
-  button[disabled] {
-    background-color: #5fa88e; /* Green */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Button clicked*/
+button[disabled] {
+    background-color: #445743;
     border: none;
-    width: max-content;
-    height: max-content;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
     font-size: 16px;
-  }
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
