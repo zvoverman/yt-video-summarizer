@@ -1,6 +1,6 @@
 # yt-video-summarizer
 
-a Firefox extension that summarizes youtube videos using the HuggingFace Inference API.
+a Node.js based Firefox extension that summarizes youtube videos using the HuggingFace Inference API.
 
 ## Dependencies
 
