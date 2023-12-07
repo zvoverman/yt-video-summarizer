@@ -2,17 +2,17 @@
 
 summarizes youtube videos using the HuggingFace Inference API.
 
-### Dependencies
+## Dependencies
 
 * [Express.js](https://expressjs.com/)
 * [youtube-transcript](https://www.npmjs.com/package/youtube-transcript?activeTab=readme)
 * [Hugging Face Inference API](https://huggingface.co/docs/api-inference/index)
 
-## Model
+#### Model
 
 currently using the following Longformer Encoder-Decoder model: [pszemraj/led-base-book-summary](https://huggingface.co/pszemraj/led-base-book-summary)
 
-### Setup
+## Setup
 
 create HuggingFace API key environment variable
 ```bash
