@@ -14,6 +14,11 @@ currently using the following Longformer Encoder-Decoder model: [pszemraj/led-ba
 
 ## Setup
 
+install Hugging Face Inference Library
+```base
+$ npm install @huggingface/inference
+```
+
 create HuggingFace API key environment variable
 ```bash
 $ export HF_API_KEY=YOUR_API_KEY
