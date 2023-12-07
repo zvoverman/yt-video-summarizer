@@ -23,3 +23,5 @@ run the app
 ```bash
 $ node app
 ```
+
+![yt-video-summarizer](![alt text](https://github.com/zvoverman/yt-video-summarizer/blob/main/image.png?raw=true)
