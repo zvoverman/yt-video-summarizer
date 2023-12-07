@@ -10,7 +10,7 @@ summarizes youtube videos using the HuggingFace Inference API.
 
 ## Model
 
-currently using the following Longformer Encoder-Decoder mondel: [pszemraj/led-base-book-summary](https://huggingface.co/pszemraj/led-base-book-summary)
+currently using the following Longformer Encoder-Decoder model: [pszemraj/led-base-book-summary](https://huggingface.co/pszemraj/led-base-book-summary)
 
 ### Setup
 
