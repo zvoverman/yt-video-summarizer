@@ -24,4 +24,7 @@ run the app
 $ node app
 ```
 
-![yt-video-summarizer](https://github.com/zvoverman/yt-video-summarizer/blob/main/image.png?raw=true)
+<p align="center">
+  <img src="https://github.com/zvoverman/yt-video-summarizer/blob/main/image.png?raw=true" />
+</p>
+
